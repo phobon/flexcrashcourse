@@ -11,8 +11,8 @@ class Index extends React.Component {
     const { boxes } = this.state;
 
     const b = boxes.map((b, i) => b === 1 ? 
-        <Flex key={i} bg="yellow" p={4} mx={1}>{i}</Flex>
-        : <Box key={i} bg="yellow" p={4} mx={1}>{i}</Box>
+        <Flex key={i} bg="yellow" p={4} m={1}>{i}</Flex>
+        : <Box key={i} bg="yellow" p={4} m={1}>{i}</Box>
     );
 
     return (
@@ -26,9 +26,9 @@ class Index extends React.Component {
             <Button onClick={() => this.setState({ boxes: [] })}>Clear</Button>
           </Box>
           
-          <Box width="100%" bg="red" py={2} px={1} mb={3} justify="flex-start">
+          {boxes.length > 0 && <Box flexWrap="wrap" width="100%" bg="red" py={1} px={1} mb={3} justify="flex-start">
             {b}
-          </Box>
+          </Box>}
         </Box>
       </ThemeProvider>
     )
