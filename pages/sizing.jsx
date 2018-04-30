@@ -75,6 +75,7 @@ class Sizing extends React.Component {
 
           <H4>Containers can control their size<Inline color="accent" ml={1}>based on available space</Inline></H4>
           <H4>Containers can <Inline color="accent" ml={1}>grow or shrink</Inline></H4>
+          <H4>Grow and shrink values are <Inline color="accent" mx={1}>relative</Inline> to other containers</H4>
           <H4 mb={3}>Containers can set a basis that <Inline color="accent" ml={1}>defines its minimum size along the major axis</Inline></H4>
           <Box mb={4}>
             <Button mr={5} onClick={() => this.setState({ containers: [...defaultItems] })}>Reset</Button>
