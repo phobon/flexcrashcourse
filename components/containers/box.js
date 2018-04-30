@@ -27,7 +27,6 @@ import {
 
 const Box = styled.div`
     display: flex;
-    flex: none;
 
     ${borders}
     ${borderColor}
@@ -49,9 +48,8 @@ const Box = styled.div`
     ${flexWrap}
     ${flexBasis}
 
-    border-radius: ${props => props.round ? "100%" : borderRadius(props.borderRadius)};
-    width: ${props => props.fullWidth ? "100%" : "auto"};
-    height: ${props => props.fullHeight ? "100%" : "auto"};
+    width: ${props => props.fullWidth ? "100%" : ""};
+    height: ${props => props.fullHeight ? "100%" : ""};
 
     ${width}
     ${minWidth}
@@ -62,10 +60,10 @@ const Box = styled.div`
 `;
 
 Box.defaultProps = {
+    flex: "none",
     align: "center",
     justify: "center",
-    borderRadius: 0,
-    round: false
+    borderRadius: 0
 };
 
 Box.propTypes = {

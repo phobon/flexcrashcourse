@@ -39,15 +39,15 @@ class Index extends React.Component {
         <H1 color="grayscale.2" mb={2}>Flexible box layout</H1>
         <H4><Inline color="accent" mr={1}>Container-based</Inline> layout</H4>
         <H4>Lays out in a<Inline color="accent" mx={1}>single dimension</Inline> (vertical or horizontal)</H4>
-        <H4>Can control the <Inline color="accent" mx={1}>size</Inline>of its children</H4>
-        <H4>Can control the <Inline color="accent" mx={1}>alignment</Inline>of its children</H4>
-        <H4 mb={3}>Can control the <Inline color="accent" mx={1}>order</Inline>of its children</H4>
+        <H4>Can control the <Inline color="accent" mx={1}>size</Inline> of elements based on available space</H4>
+        <H4>Can control the <Inline color="accent" mx={1}>alignment</Inline>of elements</H4>
+        <H4 mb={3}>Can control the <Inline color="accent" mx={1}>order</Inline> that elements render</H4>
 
         <Box mb={5}>
           <Button mr={5} onClick={() => this.setState({ boxes: [0, 0, 1] })}>Reset</Button>
 
-          <Button onClick={() => this.addBox(1)} mr={2}>Add Flex</Button>
-          <Button onClick={() => this.addBox(0)} mr={5}>Add Box</Button>
+          <Button onClick={() => this.addBox(1)} mr={2}>Add flexible container</Button>
+          <Button onClick={() => this.addBox(0)} mr={5}>Add inflexible container</Button>
 
           <Button active={ direction === "row" } onClick={() => this.setState({ direction: "row" })} mr={2}>row</Button>
           <Button active={ direction === "column" } onClick={() => this.setState({ direction: "column" })} mr={5}>column</Button>
@@ -55,7 +55,7 @@ class Index extends React.Component {
           <Button onClick={() => this.randomize()} mr={5}>Randomize order</Button>
         </Box>
         
-        <Flex fullHeight bg="grayscale.3" fullWidth py={1} px={1} flexDirection={direction} fullWidth flexWrap="wrap" align="flex-start" justify="flex-start">
+        <Flex style={{ overflow: "hidden" }} bg="grayscale.3" fullWidth fullHeight py={1} px={1} flexDirection={direction} flexWrap="wrap" align="flex-start" justify="flex-start">
           {b}
         </Flex>
       </Flex>
