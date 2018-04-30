@@ -12,6 +12,10 @@ const Button = styled.button`
   ${space}
   ${color}
   ${borderRadius}
+
+  background-color: ${props => props.active ? props.theme.colors.accent : props.bg};
+  color: ${props => props.active ? "white" : props.color};
+  pointer-events: ${props => props.active ? "none" : "all"};
 `;
 
 Button.defaultProps = {

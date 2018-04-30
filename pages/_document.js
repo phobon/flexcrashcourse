@@ -3,8 +3,6 @@ import Document, { Head, Main, NextScript } from 'next/document'
 import flush from 'styled-jsx/server'
 import { ThemeProvider, ServerStyleSheet } from 'styled-components';
 
-import theme from '../theme';
-
 export default class CustomDocument extends Document {
   static getInitialProps({ renderPage }) {
     const sheet = new ServerStyleSheet();
@@ -29,7 +27,7 @@ export default class CustomDocument extends Document {
             body {
                 font-size: 1.75rem;
             }
-            * {
+            *, *::before, *::after {
                 box-sizing: border-box;
             }
             h1, h2, h3, h4, h5, h6, p {
