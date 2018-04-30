@@ -27,7 +27,7 @@ const justifyValues = [
   "space-evenly"
 ];
 
-class Index extends React.Component {
+class Positioning extends React.Component {
   state = { 
     align: "flex-start",
     justify: "flex-start",
@@ -91,4 +91,4 @@ class Index extends React.Component {
   }
 }
 
-export default Index;
+export default Positioning;

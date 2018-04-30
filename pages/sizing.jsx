@@ -28,7 +28,7 @@ const defaultItems = [
   }
 ];
 
-class Index extends React.Component {
+class Sizing extends React.Component {
   state = { 
     direction: "row",
     containers: [...defaultItems]
@@ -91,4 +91,4 @@ class Index extends React.Component {
   }
 }
 
-export default Index;
+export default Sizing;
