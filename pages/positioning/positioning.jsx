@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 
-import { Box, Flex, H1, H4, Button, Inline } from '../components';
+import { Box, Flex, H1, H4, Button, Inline } from '../../components';
 
 const Item = Box.extend`
   background-color: yellow;

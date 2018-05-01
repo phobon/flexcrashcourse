@@ -1,7 +1,9 @@
 import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 
-import { Box, Flex, H1, H4, Button, Inline } from '../components';
+import { Box, Flex, H1, H4, Button, Inline } from '../../components';
+
+import Content from "./content.md";
 
 const Item = Box.extend`
   background-color: orange;
@@ -71,13 +73,11 @@ class Sizing extends React.Component {
     return (
       <>
         <Box flexDirection="column" px={4} pb={4} justify="flex-start" align="flex-start">
-          <H1 color="grayscale.2">Sizing elements - grow, shrink, basis</H1>
+          <Content components={{
+            h1: H1
+          }} />
 
-          <H4>Containers can control their size<Inline color="accent" ml={1}>based on available space</Inline></H4>
-          <H4>Containers can <Inline color="accent" ml={1}>grow or shrink</Inline></H4>
-          <H4>Grow and shrink values are <Inline color="accent" mx={1}>relative</Inline> to other containers</H4>
-          <H4 mb={3}>Containers can set a basis that <Inline color="accent" ml={1}>defines its minimum size along the major axis</Inline></H4>
-          <Box mb={4}>
+          <Box mt={3} mb={4}>
             <Button mr={5} onClick={() => this.setState({ containers: [...defaultItems] })}>Reset</Button>
             <Button active={direction === "row"} onClick={() => this.setState({ direction: "row" })} mr={2}>row</Button>
             <Button active={direction === "column"} onClick={() => this.setState({ direction: "column" })} mr={2}>column</Button>

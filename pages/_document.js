@@ -54,10 +54,12 @@ export default class CustomDocument extends Document {
                 font-size: 2.1rem;
             }
 
-            ul, li, ol {
-                list-style: none;
-                margin: 0;
+            ul, ol {
+                margin: 1rem 0 0 0;
                 padding: 0;
+            }
+            li {
+                margin: 0 0 0 2rem;
             }
 
             #__next {

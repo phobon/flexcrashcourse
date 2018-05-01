@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-import { Box, Flex, H1, H4, Inline } from "../components";
+import { Box, Flex, H1, H4, Inline } from "../../components";
+
+import Content from "./content.md";
 
 class Composition extends React.Component {
   _itemGenerator = 0;
@@ -20,10 +22,9 @@ class Composition extends React.Component {
     return (
       <>
         <Box mx={4} mb={5} flexDirection="column" align="flex-start">
-          <H1 color="grayscale.2" mb={2}>Composing layouts using flex</H1>
-          <H4>Look for elements that<Inline color="accent" mx={1}>flow in a similar direction</Inline>and group them in rows or columns</H4>
-          <H4>Start from the<Inline color="accent" mx={1}>outside container and work your way in</Inline></H4>
-          <H4>Whiteboard/pen and paper are a good place to start</H4>
+          <Content components={{
+            h1: H1
+          }}/>
         </Box>
           
         <Flex fullWidth fullHeight align="flex-start" justify="flex-start" pb={4} style={{ overflow: "hidden" }}>

@@ -36,6 +36,7 @@ export default class FlexCrash extends App {
                 <Link href="/composition"><a>Composition</a></Link>
                 <Link href="/positioning"><a>Positioning</a></Link>
                 <Link href="/sizing"><a>Sizing</a></Link>
+                <Link href="/howtocheat"><a>Cheating</a></Link>
               </Navigation>
               <Container>
                 <Component 

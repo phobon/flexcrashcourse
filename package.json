@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@mdx-js/mdx": "^0.8.1",
     "babel-plugin-styled-components": "^1.5.1",
     "next": "6.0.0-canary.6",
     "react": "^16.3.2",
@@ -11,5 +12,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start"
+  },
+  "devDependencies": {
+    "@mdx-js/loader": "^0.8.1"
   }
 }
