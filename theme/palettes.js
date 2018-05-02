@@ -1,7 +1,7 @@
 export const grayscale = {    
     white: "#FFF",
     black: "#000",
-    lighter: "#f6f6f6",
+    lighter: "#f2f2f2",
     light: "#d7d7d7",
     medium: "#a1a1a1",
     heavy: "#6c6c6c",

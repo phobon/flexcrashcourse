@@ -8,6 +8,10 @@ import theme from "../theme";
 import { Box, Anchor, H4 } from "../components";
 
 const Navigation = Box.extend`
+    position: fixed;
+    left: 0;
+    top: 0;
+    
     > * {
         margin-right: 2rem;
     }
@@ -30,13 +34,13 @@ export default class FlexCrash extends App {
       return (
           <ThemeProvider theme={theme}>
             <Box flexDirection="column" fullWidth fullHeight justify="flex-start" align="flex-start">
-              <Navigation px={4} py={3} mb={4} justify="flex-start" fullWidth borderBottom="1px solid" borderColor="grayscale.3">
+              <Navigation bg="white" px={4} py={3} justify="flex-start" fullWidth borderBottom="4px dashed" borderColor="grayscale.3">
                 <H4 mr={4}>Flex Crash Course</H4>
                 <Link href="/"><a>Overview</a></Link>
-                <Link href="/composition"><a>Composition</a></Link>
-                <Link href="/positioning"><a>Positioning</a></Link>
-                <Link href="/sizing"><a>Sizing</a></Link>
-                <Link href="/howtocheat"><a>Cheating</a></Link>
+                <Link href="/alignment"><a>Alignment</a></Link>
+                <Link href="/sizing"><a>Size</a></Link>
+                <Link href="/composition"><a>Composition</a></Link>                
+                <Link href="/cheatsheet"><a>Cheat Sheet</a></Link>
               </Navigation>
               <Container>
                 <Component 

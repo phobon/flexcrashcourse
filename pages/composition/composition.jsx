@@ -1,18 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 
-import { Box, Flex, H1, H4, Inline } from "../../components";
+import { Box, Flex, Inline, Page, BoxItem, FlexItem } from "../../components";
 
 import Content from "./content.md";
+import * as md from "../../components/markdown";
 
 class Composition extends React.Component {
   _itemGenerator = 0;
 
   static async getInitialProps() {
     return {
-      leftItems: 5,
-      rightItems: 10,
-      cards: 8
+      leftItems: 3,
+      rightItems: 3,
+      cards: 3
     };
   }
 
@@ -20,32 +21,48 @@ class Composition extends React.Component {
     const { leftItems, rightItems, cards } = this.props;
 
     return (
-      <>
-        <Box mx={4} mb={5} flexDirection="column" align="flex-start">
+      <Page content={
           <Content components={{
-            h1: H1
-          }}/>
-        </Box>
+            h1: md.H1, h2: md.H2, h3: md.H3, h4: md.H4, p: md.P, code: md.Code, ul: md.Ul
+          }}/>}>
           
-        <Flex fullWidth fullHeight align="flex-start" justify="flex-start" pb={4} style={{ overflow: "hidden" }}>
-          <Box bg="red" flexDirection="column" p={2} fullHeight justify="flex-start" ml={4}>
+        <Box height="40%" fullWidth align="flex-start" justify="flex-start">
+          <Box bg="purple" flexDirection="column" p={2} fullHeight justify="flex-start">
             {this.generateItems(leftItems)}
           </Box>
-          <Flex flexWrap="wrap" bg="grayscale.3" justify="flex-start">
+          <Flex flexWrap="wrap" bg="orange" justify="flex-start" align="flex-start" fullHeight>
             {this.generateCards(cards)}
           </Flex>
-          <Box bg="red" fullHeight flexDirection="column" p={2} justify="flex-end" mr={4}>
+          <Box bg="purple" fullHeight flexDirection="column" p={2} justify="flex-end">
             {this.generateItems(rightItems)}
           </Box>
-        </Flex>
-      </>
+        </Box>
+
+        <Box fullWidth bg="grayscale.3" mt={4}>
+          <BoxItem/>
+          <FlexItem/>          
+          <BoxItem/>
+        </Box>
+
+        <Box fullWidth bg="grayscale.3" mt={4}>
+          <FlexItem/>
+          <BoxItem/>
+          <BoxItem/>
+        </Box>
+
+        <Box fullWidth bg="grayscale.3" mt={4}>
+          <BoxItem/>
+          <BoxItem/>
+          <FlexItem/>
+        </Box>
+      </Page>
     )
   };
 
   generateCards = (count) => {
     const cards = [];
     for (let i = 0; i < count; i++) {
-      cards.push(<Box key={`card_${i}`} height="30rem" m={3} bg="purple" width="20rem"/>);
+      cards.push(<Box key={`card_${i}`} height="25rem" m={3} bg="purple" width="20rem"/>);
     }
 
     return cards;

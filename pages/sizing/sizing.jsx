@@ -1,11 +1,12 @@
 import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 
-import { Box, Flex, H1, H4, Button, Inline } from '../../components';
+import { Box, Flex, H4, Button, Inline, Page, ButtonGroup } from '../../components';
 
 import Content from "./content.md";
+import * as md from "../../components/markdown";
 
-const Item = Box.extend`
+const FlexItem = Flex.extend`
   background-color: orange;
   color: white;
   font-size: ${props => props.theme.fontSizes[3]}px;
@@ -45,7 +46,7 @@ class Sizing extends React.Component {
     const { direction, containers } = this.state;
 
     const items = containers.map((c, i) => (
-      <Item key={i} flexDirection="column" fullWidth={ direction === "column"} fullHeight={ direction === "row" } flex={`${c.grow} ${c.shrink} ${c.basis}`}>
+      <FlexItem key={i} flexDirection="column" fullWidth={ direction === "column" } fullHeight={ direction === "row" } flex={`${c.grow} ${c.shrink} ${c.basis}`}>
         <Box flexDirection="column" mb={3}>
           <H4>grow: {c.grow}</H4>
           <H4>shrink: {c.shrink}</H4>
@@ -67,27 +68,25 @@ class Sizing extends React.Component {
           <Button mr={2} onClick={() => this.growShrink(i, Object.assign({}, c, { basis: "20%" }))}>20%</Button>
           <Button onClick={() => this.growShrink(i, Object.assign({}, c, { basis: "50rem" }))}>50rem</Button>
         </Box>
-      </Item>
+      </FlexItem>
     ));
 
     return (
-      <>
-        <Box flexDirection="column" px={4} pb={4} justify="flex-start" align="flex-start">
-          <Content components={{
-            h1: H1
-          }} />
+      <Page content={
+        <Content components={{
+          h1: md.H1, h2: md.H2, h3: md.H3, h4: md.H4, p: md.P, code: md.Code, ul: md.Ul, pre: md.Pre
+        }}/>}>
 
-          <Box mt={3} mb={4}>
-            <Button mr={5} onClick={() => this.setState({ containers: [...defaultItems] })}>Reset</Button>
-            <Button active={direction === "row"} onClick={() => this.setState({ direction: "row" })} mr={2}>row</Button>
-            <Button active={direction === "column"} onClick={() => this.setState({ direction: "column" })} mr={2}>column</Button>
-          </Box>
-        </Box>
+        <ButtonGroup>
+          <Button mr={5} onClick={() => this.setState({ containers: [...defaultItems] })}>Reset</Button>
+          <Button active={direction === "row"} onClick={() => this.setState({ direction: "row" })} mr={2}>row</Button>
+          <Button active={direction === "column"} onClick={() => this.setState({ direction: "column" })} mr={2}>column</Button>
+        </ButtonGroup>
 
-        <Flex px={4} pb={4} fullWidth fullHeight flexDirection={direction}>
+        <Flex fullWidth fullHeight flexDirection={direction} bg="grayscale.3">
           {items}
-        </Flex>   
-      </>
+        </Flex> 
+      </Page>
     )
   }
 }
